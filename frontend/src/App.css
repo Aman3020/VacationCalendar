@@ -115,10 +115,6 @@ button:disabled {
   border-bottom: 1px solid #ecf0f1;
 }
 
-.calendar-row:last-child {
-  border-bottom: none;
-}
-
 .day-header {
   flex: 1;
   padding: 15px 10px;
@@ -139,15 +135,10 @@ button:disabled {
   padding: 3px;
 }
 
-.day-cell.other-month {
+/* .day-cell.other-month {
   background: #f8f9fa;
   color: #adb5bd;
-}
-
-.day-cell.today {
-  background: #fff3cd;
-  border: 2px solid #ffc107;
-}
+} */
 
 .day-number {
   font-weight: 600;
@@ -174,17 +165,10 @@ button:disabled {
   background: transparent ;
 }
 
-.week-one-holiday .day-cell.other-month,
-.week-multiple-holidays .day-cell.other-month {
-  background: rgba(168, 230, 207, 0.3) ;
-}
-
-.week-one-holiday .day-cell.today,
-.week-multiple-holidays .day-cell.today {
-  background: #fff3cd ;
+.day-cell.today {
+  background: #fff3cd;
   border: 2px solid #ffc107;
 }
-
 .calendar-container.quarterly .quarter-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
