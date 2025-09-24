@@ -19,8 +19,10 @@ function App() {
     try {
       const isoCode = countries[selectedCountry];
       const year = new Date().getFullYear();
+      // console.log(year);
       const res = await fetch(`${API_URL}?country=${isoCode}&year=${year}`);
       const data = await res.json();
+      // console.log(data);
 
       if (data.meta.code === 200) {
         setHolidays(data.response.holidays || []);
