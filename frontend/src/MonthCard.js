@@ -1,8 +1,10 @@
 import DayCell from "./DayCell";
 
-const MonthCard = ({ monthDate, holidays }) => {
+const MonthCard = ({ monthDate, holidays, toggle }) => {
   const year = monthDate.getFullYear();
   const month = monthDate.getMonth();
+
+  console.log(toggle);
 
 
   const holidaysByDate = {};
@@ -22,19 +24,40 @@ const MonthCard = ({ monthDate, holidays }) => {
 
   const weeks = [];
   let current = new Date(startDate);
-
-  while (current <= lastDay || weeks.length < 6) {
+  let iterations = 0;
+  while (current <= lastDay || iterations < 6) {
+    iterations++;
     const week = [];
-    for (let i = 0; i < 7; i++) {
-      const day = new Date(current);
-      const key = day.getDate();
-      week.push({
-        date: day,
-        holidays: holidaysByDate[key] || []
-      });
-      current.setDate(current.getDate() + 1);
+    if(toggle == "Normal"){
+      let hasHoliday = false;
+      for (let i = 0; i < 7; i++) {
+        const day = new Date(current);
+        const key = day.getDate();
+        const dayHolidays = holidaysByDate[key] || [];
+        if (Array.isArray(dayHolidays) && dayHolidays.length > 0) {
+          hasHoliday = true;
+        }
+        week.push({
+          date: day,
+          holidays: dayHolidays
+        });
+        current.setDate(current.getDate() + 1);
+      }
+        if (hasHoliday) weeks.push(week);
+      }else{
+        for (let i = 0; i < 7; i++) {
+          const day = new Date(current);
+          const key = day.getDate();
+          
+          week.push({
+            date: day,
+            holidays: holidaysByDate[key] || []
+          });
+          current.setDate(current.getDate() + 1);
+        }
+        weeks.push(week);
+
     }
-    weeks.push(week);
   }
 
   const monthNames = [

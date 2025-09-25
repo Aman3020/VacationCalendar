@@ -12,6 +12,7 @@ function App() {
   const [holidays, setHolidays] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  
 
   const fetchHolidays = async () => {
     setLoading(true);

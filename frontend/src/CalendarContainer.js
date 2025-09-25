@@ -4,6 +4,16 @@ import MonthCard from "./MonthCard";
 const CalendarContainer = ({ holidays, viewType }) => {
   const today = new Date();
   const [currentDate, setCurrentDate] = useState(new Date(today.getFullYear(), today.getMonth(), 1));
+  const [vacation, setVacation]  = useState("Normal");
+
+  const handleToggle = ()=>{
+    // console.log(vacation);
+    if(vacation == "Normal"){
+      setVacation("notNormal");
+    }else{
+      setVacation("Normal");
+    }
+  };
 
   const handlePrevious = () => {
     if (viewType === "monthly") {
@@ -40,11 +50,12 @@ const CalendarContainer = ({ holidays, viewType }) => {
         <button onClick={handlePrevious}>← Previous</button>
         <button onClick={() => setCurrentDate(new Date(today.getFullYear(), today.getMonth(), 1))}>Today</button>
         <button onClick={handleNext}>Next →</button>
+        <button onClick={handleToggle}> Toggle </button>
       </div>
 
       <div className={viewType === "quarterly" ? "quarter-grid" : "month-grid"}>
         {months.map((monthDate, idx) => (
-          <MonthCard key={idx} monthDate={monthDate} holidays={holidays} />
+          <MonthCard key={idx} monthDate={monthDate} holidays={holidays} toggle={vacation}/>
         ))}
       </div>
     </div>
