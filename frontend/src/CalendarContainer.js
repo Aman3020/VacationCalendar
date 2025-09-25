@@ -23,7 +23,6 @@ const CalendarContainer = ({ holidays, viewType }) => {
 
   const getMonthsToDisplay = () => {
     if (viewType === "monthly") return [currentDate];
-    // Quarterly: show 3 months (2 top, 1 bottom)
     const firstMonthOfQuarter = currentDate.getMonth() - (currentDate.getMonth() % 3);
     const year = currentDate.getFullYear();
     return [

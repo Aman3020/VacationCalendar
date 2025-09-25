@@ -160,15 +160,11 @@ button:disabled {
   border-left: 3px solid #27ae60;
 }
 
-.week-one-holiday .day-cell,
+/* .week-one-holiday .day-cell,
 .week-multiple-holidays .day-cell {
   background: transparent ;
-}
+} */
 
-.day-cell.today {
-  background: #fff3cd;
-  border: 2px solid #ffc107;
-}
 .calendar-container.quarterly .quarter-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -180,6 +176,11 @@ button:disabled {
   border: 1px solid #ccc;
   padding: 5px;
 }
+.week-one-holiday .day-cell{ background-color: #b7e4c7; }
+.week-multiple-holidays .day-cell{ background-color: #52b788; }
 
-.week-one-holiday { background-color: #b7e4c7; }
-.week-multiple-holidays { background-color: #52b788; }
+.day-cell.today {
+  background: #fff3cd;
+  border: 2px solid #ffc107;
+}
+

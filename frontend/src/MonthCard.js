@@ -51,6 +51,7 @@ const MonthCard = ({ monthDate, holidays }) => {
       </div>
       {weeks.map((week, idx) => {
         const holidayCount = week.reduce((acc, d) => acc + d.holidays.length, 0);
+
         const rowClass = holidayCount === 1 ? 'week-one-holiday' : holidayCount > 1 ? 'week-multiple-holidays' : '';
         return (
           <div key={idx} className={`calendar-row ${rowClass}`}>
