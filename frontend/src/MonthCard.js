@@ -4,7 +4,7 @@ const MonthCard = ({ monthDate, holidays, toggle }) => {
   const year = monthDate.getFullYear();
   const month = monthDate.getMonth();
 
-  console.log(toggle);
+  // console.log(toggle);
 
 
   const holidaysByDate = {};
